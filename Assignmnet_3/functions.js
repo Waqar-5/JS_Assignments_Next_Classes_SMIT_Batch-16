@@ -703,20 +703,303 @@
 
 //5. Interactive Version with Prompt
 // Commit: Function to check palindrome using user input
-function palindromePrompt() {
-    // Commit: Take input from user
-    var str = prompt("Enter a string to check palindrome:");
-    // Commit: Convert to lowercase
-    str = str.toLowerCase();
-    // Commit: Reverse string
-    var reversed = str.split("").reverse().join("");
-    // Commit: Display result
-    if (str === reversed) {
-        document.write(str + " is a palindrome.");
-    } else {
-        document.write(str + " is not a palindrome.");
-    }
-}
+// function palindromePrompt() {
+//     // Commit: Take input from user
+//     var str = prompt("Enter a string to check palindrome:");
+//     // Commit: Convert to lowercase
+//     str = str.toLowerCase();
+//     // Commit: Reverse string
+//     var reversed = str.split("").reverse().join("");
+//     // Commit: Display result
+//     if (str === reversed) {
+//         document.write(str + " is a palindrome.");
+//     } else {
+//         document.write(str + " is not a palindrome.");
+//     }
+// }
 
-// Example usage (run in browser)
-palindromePrompt();
+// // Example usage (run in browser)
+// palindromePrompt();
+
+
+
+// Q#11
+
+//1: Using split(), map(), and join() (Modern & Clean Way)
+// function capitalizeWords(str){
+//     // Step 1: Split the string into words
+//     var words = str.split(" ");  
+
+//     // Step 2: Map each word -> Capitalize first letter + add rest of word
+//     var capitalized = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+
+//         // Step 3: Join the words back into a sentence
+//     return capitalized.join(" ");
+// }
+
+// // Test
+// document.write(capitalizeWords("the quick brown fox"));  
+// // Output: "The Quick Brown Fox"
+
+
+
+// 2: Using for loop (Traditional Way)
+// function capitalizeWordsLoop(str) {
+//     // Step 1: Split string into words
+//     var words = str.split(" ");
+//     var result = [];
+
+//     // Step 2: Loop through each word
+//     for (var i = 0; i < words.length; i++) {
+//         // Capitalize first letter + add rest
+//         let capitalized = words[i][0].toUpperCase() + words[i].substring(1);
+//         result.push(capitalized);
+//     }
+
+//     // Step 3: Join back into sentence
+//     return result.join(" ");
+// }
+
+// // Test
+// document.write(capitalizeWordsLoop("the quick brown fox"));  
+// // Output: "The Quick Brown Fox"
+
+
+
+// 3: Using Regular Expression (replace)
+// function capitalizeWordsRegex(str) {
+//     // \b\w -> word boundary + first letter of each word
+//     return str.replace(/\b\w/g, function(char) {
+//         return char.toUpperCase();
+//     });
+// }
+
+// // Test
+// document.write(capitalizeWordsRegex("the quick brown fox"));  
+// // Output: "The Quick Brown Fox"
+
+
+//4: Using for...of Loop
+// function capitalizeWordsForOf(str) {
+//     var words = str.split(" ");
+//     var result = [];
+
+//     // Loop directly through words
+//     for (var word of words) {
+//         var capitalized = word[0].toUpperCase() + word.slice(1);
+//         result.push(capitalized);
+//     }
+
+//     return result.join(" ");
+// }
+
+// // Test
+//document.write(capitalizeWordsForOf("the quick brown fox"));  
+// // Output: "The Quick Brown Fox"
+
+
+// 5: One-liner with map()
+// const capitalizeWordsOneLine = str => str
+//     .split(" ")
+//     .map(word => word[0].toUpperCase() + word.slice(1))
+//     .join(" ");
+
+// // Test
+// document.write(capitalizeWordsOneLine("the quick brown fox"));
+// // Output: "The Quick Brown Fox"
+
+
+// Q#12
+// 1: Using split() + loop (basic way)
+// function findLongestWord(str) {
+//   var words = str.split(" "); // split sentence into words
+//   var longestWord = "";
+
+//   for (var word of words) {
+//     if (word.length > longestWord.length) {
+//       longestWord = word;
+//     }
+//   }
+//   return longestWord;
+// }
+
+// // Example usage
+// document.write(findLongestWord("Web Development Tutorial")); // Output: Development
+
+
+
+// 2: Using reduce()
+// function findLongestWordReduce(str) {
+//   return str.split(" ").reduce((longest, current) =>
+//     current.length > longest.length ? current : longest
+//   );
+// }
+
+//document.write(findLongestWordReduce("Web Development Tutorial")); // Output: Development
+
+
+
+// 3: Using sort() (descending by length)
+// function findLongestWordSort(str) {
+//   return str.split(" ").sort((a, b) => b.length - a.length)[0];
+// }
+
+// document.write(findLongestWordSort("Web Development Tutorial")); // Output: Development
+
+// 4: Using Regex + match()
+// function findLongestWordRegex(str) {
+//   var words = str.match(/\w+/g); // extract words ignoring punctuation
+//   return words.reduce((longest, current) =>
+//     current.length > longest.length ? current : longest
+//   );
+// }
+
+// document.write(findLongestWordRegex("Web Development Tutorial!")); // Output: Development
+
+
+
+// 5: ES6 Arrow Function + Spread Operator
+// const findLongestWordES6 = (str) =>
+//   str.split(" ").reduce((a, b) => (b.length > a.length ? b : a));
+
+// document.write(findLongestWordES6("Web Development Tutorial")); // Output: Development
+
+
+// Multiple Longest Words
+// function findAllLongestWords(str) {
+//   var words = str.split(" ");
+//   var maxLength = Math.max(...words.map(word => word.length));
+//   return words.filter(word => word.length === maxLength);
+// }
+
+// document.write(findAllLongestWords("Web Development Tutorial")); // Output: ['Development']
+
+
+// Q#13
+// 1: Using for Loop
+// Function to count letter occurrences using for loop
+
+// function countLetterLoop(str, letter){
+//     var count = 0;
+//     for(var i = 0; i < str.length; i++){
+//         if (str[i].toLowerCase() === letter.toLowerCase()){
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+// document.write(countLetterLoop("JSResourceS.com", "o")); // 2
+
+
+
+// 2: Using split() and filter()
+// Function to count letter occurrences using split + filter
+// function countLetterSplit(str, letter) {
+//     return str
+//         .split("")
+//         .filter(ch => ch.toLowerCase() === letter.toLowerCase()).length;
+// }
+
+// // Example usage
+// document.write(countLetterSplit("JSResourceS.com", "o")); // 👉 2
+
+
+// 3: Using match() with Regex
+// Function to count letter occurrences using regex
+// function countLetterRegex(str, letter) {
+//     var regex = new RegExp(letter, "gi");  // g = global, i = ignore case
+//     var matches = str.match(regex);
+//     return matches ? matches.length : 0;
+// }
+
+// // Example usage
+// document.write(countLetterRegex("JSResourceS.com", "o")); // 👉 2
+
+// 4: Using reduce()
+// Function to count letter occurrences using reduce
+// function countLetterReduce(str, letter) {
+//     return str
+//         .toLowerCase()
+//         .split("")
+//         .reduce((count, ch) => ch === letter.toLowerCase() ? count + 1 : count, 0);
+// }
+
+// // Example usage
+// document.write(countLetterReduce("JSResourceS.com", "o")); // 👉 2
+
+
+
+// Q#14
+// Way 1: Using Function Declarations// Function Declaration - Circumference
+// function calcCircumference(radius) {
+//     var circumference = 2 * Math.PI * radius; // formula 2πr
+//     document.write("The circumference is " + circumference + "<br>");
+// }
+
+// // Function Declaration - Area
+// function calcArea(radius) {
+//     var area = Math.PI * radius * radius; // formula πr^2
+//     document.write("The area is " + area + "<br>");
+// }
+
+// // Example usage
+// calcCircumference(5);
+// calcArea(5);
+
+
+// Way 2: Using Function Expressions
+// Function Expression - Circumference
+// const calcCircumference = function(radius) {
+//     var circumference = 2 * Math.PI * radius;
+//     document.write(`The circumference is ${circumference}`);
+// };
+
+// // Function Expression - Area
+// const calcArea = function(radius) {
+//     var area = Math.PI * radius * radius;
+//     document.write(`The area is ${area}`);
+// };
+
+// calcCircumference(7);
+// calcArea(7);
+
+
+
+// Way 3: Using Arrow Functions
+// Arrow Function - Circumference
+// const calcCircumference = (radius) => {
+//     var circumference = 2 * Math.PI * radius;
+//     document.write(`The circumference is ${circumference}`);
+// };
+
+// // Arrow Function - Area
+// const calcArea = (radius) => {
+//     var area = Math.PI * radius * radius;
+//     document.write(`The area is ${area}`);
+// };
+
+// calcCircumference(10);
+// calcArea(10);
+
+
+
+// 4: Using One-Liner Arrow Functions
+// const calcCircumference = (r) => document.write("The circumference is " + (2 * Math.PI * r) + "<br>");
+// const calcArea = (r) => document.write("The area is " + (Math.PI * r * r) + "<br>");
+
+// calcCircumference(12);
+// calcArea(12);
+
+
+// Way 5: Using Object with Methods
+// const Circle = {
+//     calcCircumference(radius) {
+//         document.write("The circumference is " + (2 * Math.PI * radius) + "<br>");
+//     },
+//     calcArea(radius) {
+//         document.write("The area is " + (Math.PI * radius * radius) + "<br>");
+//     }
+// };
+
+// Circle.calcCircumference(15);
+// Circle.calcArea(15);
