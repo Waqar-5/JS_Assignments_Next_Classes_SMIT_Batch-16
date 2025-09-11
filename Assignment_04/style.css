@@ -1,0 +1,182 @@
+/* Base styles */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 30px;
+  color: #333;
+}
+
+.container {
+  background: #ffffffcc; /* slightly transparent for soft effect */
+  padding: 25px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 450px; /* limits width on large screens */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #222;
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Input section */
+.input-box {
+  display: flex;
+  flex-wrap: wrap; /* allow wrapping on small screens */
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+input[type="text"] {
+  flex: 1 1 150px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #aaa;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
+  outline: none;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Add/Update buttons */
+#addBtn {
+  background: linear-gradient(45deg, #28a745, #1db954);
+  color: #fff;
+}
+
+#updateBtn {
+  background: linear-gradient(45deg, #007bff, #00bfff);
+  color: #fff;
+}
+
+/* Task list */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: linear-gradient(120deg, #ffe259, #ffa751);
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap; /* allows buttons to wrap below text on small screens */
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+li.done {
+  background: #d3d3d3;
+  color: #888;
+  text-decoration: line-through;
+}
+
+/* Actions buttons */
+li .actions {
+  display: flex;
+  flex-wrap: wrap; /* wrap buttons on small screens */
+  gap: 10px;
+  margin-top: 5px;
+}
+
+li button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.delete-btn {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  color: #fff;
+}
+
+.edit-btn {
+  background: linear-gradient(45deg, #fbd72b, #f7797d);
+  color: #fff;
+}
+
+.done-btn {
+  background: linear-gradient(45deg, #17a2b8, #00c6ff);
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+footer .social-links a {
+  margin: 0 5px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+  color: #0056b3;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .input-box {
+    flex-direction: column;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  li .actions {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 5px;
+    margin-top: 8px;
+  }
+}
