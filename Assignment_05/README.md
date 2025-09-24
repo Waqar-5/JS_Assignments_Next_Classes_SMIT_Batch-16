@@ -38,6 +38,9 @@ smart-stopwatch/
 
 └── README.md # Project description and instructions
 
+
+You can see the live project here: [View Live Demo](https://spark-stopwatch.netlify.app/)
+
 ---
 
 ## ⚡ How to Use
