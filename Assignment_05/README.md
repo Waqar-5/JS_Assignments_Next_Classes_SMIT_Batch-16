@@ -31,8 +31,11 @@ A **modern, responsive, and visually appealing stopwatch** built with **HTML, CS
 smart-stopwatch/
 │
 ├── index.html # Main HTML file
+
 ├── style.css # Styling and animations
+
 ├── app.js # Timer functionality with JS
+
 └── README.md # Project description and instructions
 
 ---
