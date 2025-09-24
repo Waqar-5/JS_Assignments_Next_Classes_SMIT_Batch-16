@@ -1,0 +1,180 @@
+/* ===== Reset & Body ===== */
+* { /* commit: Select all elements */
+    box-sizing: border-box; /* commit: Include padding and border in element's width/height */
+    margin: 0; /* commit: Remove default margin */
+    padding: 0; /* commit: Remove default padding */
+}
+
+/* commit: Style the body */
+body{
+    background: rgba(0, 0, 0, 0.664); 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh; /* commit: Make body full viewport height */
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+}
+
+/* ===== Main Title ===== */
+.main h1{
+    color: white;
+    text-align: center;
+    font-size: 2.5rem; /* commit: Large font size */
+    margin-bottom: 30px; /* commit: Space below heading */
+    transition: all 0.5s ease-in-out; /* commit: Smooth transitions on hover */
+}
+
+/* commit: Hover effect for heading */
+.main h1:hover{
+    transform: scale(1.1); /*commit: Slightly enlarge on hover */
+    cursor: pointer;
+    color: rgb(0, 255, 76);
+}
+
+/* ===== Second Div (Container) ===== */
+.secondDiv{
+    padding: 40px 30px; /* commit: Inner spacing */
+    border-radius: 15px; /* commit: Rounded corners */
+    background: white; /* commit: White background */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* commit: Soft shadow for 3D effect */
+    animation: fadeIn 1s ease forwards; /* commit: Fade-in animation on load */
+}
+
+/* ===== Timer Display ===== */
+.mainDiv {
+    display: flex; /* commit: Flex layout for numbers */
+    gap: 10px; /* commit: Space between timer segments */
+    justify-content: center; /* commit: Center horizontally */
+    align-items: center; /* commit: Center vertically */
+    font-size: clamp(1.5rem, 5vw, 2rem); /* commit: Font scales nicely on all devices */
+    font-weight: bold; /* commit: Bold text */
+    padding: 20px 40px; /* commit: Inner spacing */
+    border-radius: 10px; /* commit: Rounded corners */
+    background: black; /* commit: Black background for contrast */
+    color: white; /* commit: White text color */
+    transition: all 0.5s ease-in-out; /* commit: Smooth hover transition */
+}
+
+.mainDiv p { 
+    min-width: 30px; /* commit: Fixed width for digits to prevent shifting */
+    text-align: center; /* commit: Center each number */
+}
+
+.mainDiv:hover{
+    transform: scale(1.05); /* commit: Slightly enlarge */
+    cursor: pointer; /* commit: Pointer cursor */
+    color: rgb(0, 255, 76); /* commit: Change text color on hover */
+    background-color: rgba(255, 255, 255, 0.562); /* commit: Light transparent background on hover */
+}
+
+/* ===== Buttons ===== */
+#buttonsDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* commit: Allow wrapping on smaller screens */
+}
+
+.start, .stop, .reset { /* commit: Style all buttons */
+    padding: 12px 25px; /* commit: Inner spacing */
+    border-radius: 10px; /* commit: Rounded corners */
+    border: none; /* commit: Remove border */
+    font-size: 1rem; /* commit: Font size */
+    transition: all 0.3s ease-in-out; /* commit: Smooth hover transitions */
+}
+
+.start{
+    background: rgba(0, 0, 0, 0.8); /* commit: Dark semi-transparent background */
+    color: white; /* commit: White text */
+}
+
+.start:hover { /* commit: Hover effect for start button */
+    background: rgb(0, 255, 76); /* commit: Green background */
+    color: black; /* commit: Black text */
+    transform: scale(1.1); /* commit: Enlarge slightly */
+}
+
+.stop { /* commit: Style stop button */
+    background: #f0f0f0; /* commit: Light gray background */
+    color: black; /* commit: Black text */
+}
+
+.stop:hover { /* commit: Hover effect for stop button */
+    background: #ff4d4d; /* commit: Red background */
+    color: white; /* commit: White text */
+    transform: scale(1.1); /* commit: Enlarge slightly */
+}
+
+.reset { /* commit: Style reset button */
+    background: #ddd; /* commit: Gray background */
+    color: black; /* commit: Black text */
+}
+
+.reset:hover { /* commit: Hover effect for reset button */
+    background: #00bfff; /* commit: Blue background */
+    color: white; /* commit: White text */
+    transform: scale(1.1); /* commit: Enlarge slightly */
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn{
+    from { /* commit: Start state */
+        opacity: 0; /* commit: Invisible */
+        transform: translateY(-20px); /* commit: Move up slightly */
+    }
+    to { /* commit: End state */
+        opacity: 1; /* commit: Fully visible */
+        transform: translateY(0); /* commit: Original position */
+    }
+}
+
+/* Optional: Ticking animation for milliseconds */
+#milliSecond {
+    animation: tick 1s steps(100) infinite; /* commit: Subtle tick animation */
+}
+
+@keyframes tick {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {/* commit: Tablet and medium screens */
+    .main h1 { /* commit: Smaller heading */
+        font-size: 2rem; /* commit: Adjust font size */
+    }
+
+    .mainDiv { /* commit: Timer container on small screens */
+        flex-direction: column; /* commit: Stack timer numbers vertically */
+        font-size: 1.8rem; /* commit: Slightly smaller font */
+        padding: 15px 20px; /* commit: Reduced padding */
+    }
+
+    #buttonsDiv { /* commit: Buttons stack vertically */
+        flex-direction: column; /* commit: Vertical layout */
+        gap: 15px; /* commit: Less space between buttons */
+    }
+
+    .start, .stop, .reset { /* commit: Buttons take full width */
+        width: 100%; /* commit: Full width buttons */
+    }
+}
+
+@media (max-width: 480px) { /* commit: Small mobile screens */
+    .main h1 { /* commit: Smallest heading size */
+        font-size: 1.5rem; /* commit: Adjust font size */
+    }
+
+    .mainDiv { /* commit: Timer font smaller on mobile */
+        font-size: 1.5rem; /* commit: Adjust font size */
+        padding: 10px 15px; /* commit: Reduce padding */
+    }
+
+    .secondDiv { /* commit: Reduce container padding on mobile */
+        padding: 20px 15px; /* commit: Compact container */
+    }
+}

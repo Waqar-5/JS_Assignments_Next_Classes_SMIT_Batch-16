@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Smart StopWatch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main">
+        <h1>Stopwatch App</h1>
+        <div class="secondDiv">
+    <div class="mainDiv">
+       <span id="minute">00</span> :
+      <span id="second">00</span> :
+      <span id="milliSecond">00</span>
+    </div>
+    <div id="buttonsDiv">
+        <button onclick="stop()" class="stop">Pause</button>
+      <button onclick="start()" id="startBtn" class="start">Start</button>
+      <button onclick="reset()" class="reset">Reset</button>
+    </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
