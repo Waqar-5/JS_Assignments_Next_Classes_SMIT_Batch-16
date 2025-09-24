@@ -29,7 +29,7 @@ A **modern, responsive, and visually appealing stopwatch** built with **HTML, CS
 ## 📂 Project Structure
 
 smart-stopwatch/
-│
+
 ├── index.html # Main HTML file
 
 ├── style.css # Styling and animations
